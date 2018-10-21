@@ -1,0 +1,43 @@
+<!-- 欢迎页 -->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class="return">
+      <image src='{{returnsrc}}' class='image'></image>
+    </view>
+
+    <!-- 提示文字 -->
+    <view class='text_wrap text1'>
+      <text class='text'>欢迎来到</text>
+      <text class='text'>听听塔罗</text>
+    </view>
+
+    <view class='text_wrap text2'>
+      <text>我们愿为您的愿景保驾护航</text>
+    </view>
+
+    <view class='text_wrap text3'>
+      <text class='text'>消消内心困惑</text>
+      <text class='text'>听听塔罗建议</text>
+    </view>
+
+    <view class='text_wrap ani_text'>
+      <text>点击水晶球进入你的塔罗世界</text>
+    </view>
+  </view>
+
+  <view class='aniball_wrap'>
+    <image src='{{biglogosrc}}' class='image'></image>
+
+    <view class='ball_wrap'>
+      <image src='{{bigball}}' id='ball_ani' class='image'></image>
+
+      <button class='ball_button' open-type='getUserInfo' bindgetuserinfo='go'></button>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>
+

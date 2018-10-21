@@ -1,0 +1,20 @@
+<!-- 等待提示 -->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class='text1'>
+      您的专属占卜师
+    </view>
+
+    <view class='text2'>
+      正在出现请耐心等候
+    </view>
+
+    <view class='gif'>
+      <image src='{{waitsrc}}'></image>
+    </view>
+  </view>
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

@@ -1,0 +1,95 @@
+<!--pages/detail/detail.wxml-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'></image>
+
+  <scroll-view class='content_wrap' scroll-y="true">
+    <view class='protrait_wrap'>
+      <view class='protrait'>
+        <image src="{{data.imgsrc}}"></image>
+      </view>
+    </view>
+
+    <view class='name'>
+      {{data.name}}
+    </view>
+
+    <view class='rate_wrap'>
+      <view class='rate_bg'>
+      </view>
+
+      <view class='rate'>
+        <image src='../../pic/rate/0.png' wx:if="{{data.rate*10 == 0}}"></image>
+        <image src='../../pic/rate/1.png' wx:elif="{{data.rate*10 == 1}}"></image>
+        <image src='../../pic/rate/2.png' wx:elif="{{data.rate*10 == 2}}"></image>
+        <image src='../../pic/rate/3.png' wx:elif="{{data.rate*10 < 23}}"></image>
+        <image src='../../pic/rate/4.png' wx:elif="{{data.rate*10 < 26}}"></image>
+        <image src='../../pic/rate/5.png' wx:elif="{{data.rate*10 < 29}}"></image>
+        <image src='../../pic/rate/6.png' wx:elif="{{data.rate*10 < 31}}"></image>
+        <image src='../../pic/rate/7.png' wx:elif="{{data.rate*10 < 33}}"></image>
+        <image src='../../pic/rate/8.png' wx:elif="{{data.rate*10 < 36}}"></image>
+        <image src='../../pic/rate/9.png' wx:elif="{{data.rate*10 < 39}}"></image>
+        <image src='../../pic/rate/10.png' wx:elif="{{data.rate*10 < 41}}"></image>
+        <image src='../../pic/rate/11.png' wx:elif="{{data.rate*10 < 43}}"></image>
+        <image src='../../pic/rate/12.png' wx:elif="{{data.rate*10 < 46}}"></image>
+        <image src='../../pic/rate/13.png' wx:elif="{{data.rate*10 < 49}}"></image>
+        <image src='../../pic/rate/14.png' wx:elif="{{data.rate*10 < 51}}"></image>
+      </view>
+    </view>
+
+    <view class='rate_text'>
+      {{data.rate}}
+    </view>
+
+    <view class='introduce_wrap' hidden='{{!data.introduce}}'>
+      <view class='introduce_bg'>
+      </view>
+
+      <view class='introduce'>
+        {{data.introduce}}
+      </view>
+    </view>
+
+    <view class='comment_wrap'>
+      <view class="comment {{moreclick?'full':'part'}}">
+        <view class='comment_bg'></view>
+
+        <view wx:for="{{data.comment}}" class='comment_item_wrap'>
+          <view class='item_bg'></view>
+
+          <view class='item_protrait'>
+            <image src='{{item.src}}'></image>
+          </view>
+
+          <view class='item_right'>
+            <view class='item_rate'>
+              <image wx:if="{{item.rate == 1}}" src="../../pic/rate/u-rate/1.png"></image>
+              <image wx:elif="{{item.rate == 2}}" src="../../pic/rate/u-rate/2.png"></image>
+              <image wx:elif="{{item.rate == 3}}" src="../../pic/rate/u-rate/3.png"></image>
+              <image wx:elif="{{item.rate == 4}}" src="../../pic/rate/u-rate/4.png"></image>
+              <image wx:elif="{{item.rate == 5}}" src="../../pic/rate/u-rate/5.png"></image>
+            </view>
+
+            <view class='item_text'>
+            {{item.text}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more_wrap'>
+      <view class='more_container' bindtap='more'>
+        <view class='more_bg'></view>
+        <view class='more' hidden='{{data.comment.length<3||moreclick==true}}'>
+          加载更多
+        </view>
+      </view>
+    </view>
+
+    <view class='lg_wrap'>
+      <view class='lg'>
+        <image src='{{logosrc}}'></image>
+      </view>
+    </view>  
+  </scroll-view>
+</view>
+

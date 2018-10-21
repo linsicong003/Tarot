@@ -1,0 +1,171 @@
+/* pages/augur/augur.wxss */
+.content_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+}
+
+.return{
+  width:70rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 70rpx;
+  top: 75rpx;
+}
+/* 注册页 */
+
+.augur_reg{
+  width: 100%;
+  position: relative;
+}
+
+.reg_item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.reg_text{
+  margin-top: 200rpx;
+  font-size: 32rpx;
+  letter-spacing: 3px;
+  font-family: Heiti SC;
+  color: #fff;
+}
+
+.reg_input{
+  margin-top: 32rpx;
+}
+
+.input{
+  width: 505rpx;
+  height: 110rpx;
+  padding: 40rpx 35rpx;
+  background-color: white;
+  border-radius: 6rpx;
+  box-shadow: 5rpx;
+  font-size: 32rpx;
+  font-family: Heiti SC;
+  letter-spacing: 3px;
+}
+
+.reg_submit_wrap{
+  margin-top: 290rpx;
+}
+
+.reg_submit{
+  width: 275rpx;
+  height: 95rpx;
+  position: relative;
+}
+
+.reg_submit_text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 30rpx;
+  color: #6f24a0;
+  letter-spacing: 5rpx;
+}
+
+.reg_error{
+  position: absolute;
+  top: 305rpx;
+  font-size: 28rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reg_err_text{
+  letter-spacing: 5rpx;
+}
+
+.reg_err_icon{
+  margin-top: 45rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* 注册成功 */
+.augur_sus{
+  margin-top: 216rpx;
+  width: 100%;
+}
+
+.reg_sus_item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  letter-spacing: 6rpx;
+}
+
+.reg_sus_icon{
+  display: flex;
+  justify-content: center;
+}
+
+.reg_sus_icon_wrap{
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.reg_sus_text1{
+  margin-top: 74rpx;
+  font-size: 40rpx;
+}
+
+.reg_sus_text2{
+  margin-top: 44rpx;
+  font-size: 40rpx;
+  letter-spacing: 0
+}
+
+.reg_sus_text3{
+  margin-top: 40rpx;
+  font-size: 32rpx;
+}
+
+/* 占卜师工作 */
+.augur_work{
+  width: 100%;
+  padding-top: 214rpx;
+}
+
+.item_wrap{
+  width: 100%;
+  font-size: 36rpx;
+  letter-spacing: 6rpx;
+  color: #6f24a0;
+  font-family: Heiti SC;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 86rpx;
+}
+
+.item_button{
+  width: 450rpx;
+  height: 150rpx;
+}
+
+.item_text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.noshow{
+  display: none;
+}

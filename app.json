@@ -1,0 +1,24 @@
+{
+  "pages": [
+        "pages/welcome/welcome",
+    "pages/chat/chat",
+    "pages/detail/detail",
+    "pages/index/index",
+    "pages/pickaugur/pickaugur",
+    "pages/augur/augur",
+    "pages/question/question",
+    "pages/search/search",
+    "pages/rest/rest",
+    "pages/beforepay/beforepay",
+    "pages/wait/wait"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "龙女塔罗",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "popup": "/component/popup/popup"
+  }
+}

@@ -1,0 +1,56 @@
+/**index.wxss**/
+page{
+  height: 100%;
+  overflow: hidden;
+  font-family: Heiti SC;
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+}
+
+.logo{
+  position: absolute;
+  width: 140rpx;
+  height: 120rpx;
+  bottom:85rpx;
+  left: 315rpx;
+}
+
+.button_bg{
+  width: 450rpx;
+  height: 150rpx;
+  display: block;
+}
+
+.main_wrap{
+  width: 100%;
+  height: 100%;
+}
+
+.content_wrap{
+  position: absolute;
+  left: 150rpx;
+  top: 208rpx;
+  overflow: hidden;
+}
+
+.item_wrap{
+  width: 450rpx;
+  height: 150rpx;
+  margin-bottom: 90rpx;
+  position: relative;
+}
+
+.item_text{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  color:#6f24a0;
+  font-size: 35rpx;
+  font-family: Heiti SC;
+  /* font-weight: bold; */
+  letter-spacing: 2px;
+}

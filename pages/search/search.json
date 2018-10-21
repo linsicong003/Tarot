@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+      "popup": "/component/popup/popup"
+    }
+}

@@ -1,0 +1,99 @@
+/* pages/beforepay/beforepay.wxss */
+.content_wrap{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "黑体";
+  color: #fff;
+}
+
+.headimg{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  background-color: white;
+  margin-top: 79rpx;
+}
+
+.text1{
+  margin-top: 32rpx;
+  font-size: 42rpx;
+  letter-spacing: 5rpx;
+}
+
+.text2,.text3{
+  margin-top: 60rpx;
+  font-size: 40rpx;
+  letter-spacing: 5rpx;
+}
+
+.text3{
+  margin-top: 28rpx;
+}
+
+.text4,.text5{
+  margin-top: 80rpx;
+  font-size: 24rpx;
+}
+
+.text5{
+  margin-top: 20rpx;
+}
+
+.submit{
+  width: 220rpx;
+  height: 90rpx;
+  color: #6f24a0;
+  letter-spacing: 5rpx;
+  position: relative;
+  margin-top: 77rpx;
+
+}
+
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.submit_img{
+  width: 100%;
+  height: 100%;
+}
+
+.submit_text{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+/* 支付成功 */
+.sus_icon{
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 100%;
+  margin-top: 244rpx;
+}
+
+.sus_text1{
+  letter-spacing: 5rpx;
+  font-size: 46rpx;
+  margin-top: 122rpx;
+}
+
+.sus_text2{
+  letter-spacing: 5rpx;
+  font-size: 32rpx;
+  margin-top: 36rpx;
+}

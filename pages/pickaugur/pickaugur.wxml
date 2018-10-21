@@ -1,0 +1,28 @@
+<!--pages/pickaugur/pickaugur.wxml-->
+<view class='main_wrap'>
+  <popup id="popup" title="{{modal.title}}" content="{{modal.content}}" btn_yes="{{modal.btn_yes}}" btn_no="{{modal.btn_no}}" hidden="{{modal.hidden}}" bind:success="__success" bind:cancel="__cancel">
+  </popup>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='pick-container'>
+    <view class='choose_text'>
+      选择您的专属占卜师
+    </view>
+
+    <view class='choose_item' bindtap='gopick'>
+      <image src='{{buttonsrc}}'></image>
+
+      <view class='button_text'>自选占卜师</view>
+    </view>
+
+    <view class='choose_item'>
+      <image src='{{buttonsrc}}'></image>
+
+      <view class='button_text'>随机占卜师</view>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>
+

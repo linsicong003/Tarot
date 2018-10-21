@@ -1,0 +1,285 @@
+/* pages/detail/detail.wxss */
+
+
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.content_wrap{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.protrait_wrap{
+  margin-top: 120rpx;
+  width: 100%;  
+  height: 285rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.protrait{
+  width: 282rpx;
+  height: 282rpx;
+  border-radius: 100%;
+  background-color: white;
+  border: 8rpx solid white;
+}
+
+.protrait::before{
+  content: open-quote;
+  display: block;
+  width: 282rpx;
+  height: 282rpx;
+  border:5rpx solid black;
+  border-radius: 100%;
+  position: relative;
+  right: 5rpx;
+  bottom: 5rpx;
+}
+
+.name{
+  margin-top: 62rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 4rpx;
+  font-size: 34rpx;
+}
+
+.rate_wrap{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44rpx;
+  position: relative;
+}
+
+.rate_bg{
+  width: 435rpx;
+  height: 90rpx;
+  background-color: white;
+  opacity: 0.1;
+  border-radius: 5rpx;
+}
+
+.rate{
+  position: absolute;
+  left: 157rpx;
+  top: 0;
+  width: 435rpx;
+  height: 90rpx;
+}
+
+.rate_text{
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 55rpx;
+  letter-spacing: 4rpx;
+  color: #fff;
+  margin: 20rpx 0;
+  text-align: center;
+}
+
+.introduce_wrap{
+  width: 100%;
+  height: 155rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.introduce_bg{
+  width: 600rpx;
+  height: 100%;
+  border-radius: 5rpx;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 26rpx 39rpx;
+  opacity: 0.2;
+}
+
+.introduce{
+  position: absolute;
+  width: 600rpx;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 26rpx 39rpx;
+  left: 75rpx;
+  top: 0;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+  font-family: "黑体";
+  color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.comment_wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 19rpx;
+  word-break: break-all;
+}
+
+.comment{
+  width: 600rpx;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* flex-direction: column; */
+  box-sizing: border-box;
+  padding-bottom: 17rpx;
+  overflow: hidden;
+}
+
+.part{
+  height: 480rpx;
+}
+
+.full{
+  height: 960rpx;
+}
+
+.comment_bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 0.2;
+  border-radius: 5rpx; 
+}
+
+.comment_item_wrap{
+  width: 570rpx;
+  height: 143rpx;
+  display: flex;
+  position: relative;
+  margin-top: 17rpx;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+  padding: 25rpx 21rpx;
+  margin-left: 15rpx;
+}
+
+.item_bg{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6rpx;
+  z-index: 99;
+}
+
+.item_protrait{
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 100%;
+  background: #fff;
+  z-index: 199;
+  margin-right: 28rpx;
+}
+
+.item_right{
+  width: 378rpx;
+  height: 96rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.item_rate{
+  height: 20rpx;
+  width: 150rpx;
+  display: flex;
+  z-index: 199;
+  flex: 2;
+}
+
+.item_text{
+  width: 378rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  letter-spacing: 5rpx;
+  color: #fff;
+  margin-top: 6rpx;
+  z-index: 199;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex: 5;
+}
+
+.more_wrap{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more_container{
+  width: 600rpx;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more_bg{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.2;
+}
+
+.more{
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 24rpx;
+  letter-spacing: 5rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lg_wrap{
+  width: 100%;
+  height: 120rpx;
+  margin:36rpx 0 85rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lg{
+  width: 136rpx;
+  height:120rpx;
+}

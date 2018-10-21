@@ -1,0 +1,25 @@
+<!-- 休息提示 -->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class='text1'>
+      <!-- 判断是busy跳入还是rest跳入 -->
+      您选择的占卜师{{busy?'正忙':'已休息'}}
+    </view>
+
+    <view class='text2'>
+      请重新选择
+    </view>
+
+    <view class='text3'>
+      你也可以试试其他占卜师哦
+    </view>
+
+    <view class='text4'>
+      我们的占卜师就一个字————准
+    </view>
+  </view>
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

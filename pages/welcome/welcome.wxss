@@ -1,0 +1,102 @@
+/* pages/welcome/welcome.wxss */
+
+.content_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.text_wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "黑体";
+  color: #fff;
+}
+
+text{
+  margin: 0 20rpx;
+  font-family: "黑体";
+}
+
+.text1{
+  margin-top: 160rpx;
+  font-size: 40rpx;
+  opacity: 0.9;
+}
+
+.text2{
+  margin-top: 80rpx;
+  font-size: 32rpx;
+  opacity: 0.7;
+}
+
+.text3{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  opacity: 0.7;
+}
+
+.ani_text{
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 80rpx;
+  animation: textmov 3s linear infinite alternate;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+}
+
+.aniball_wrap{
+  position: absolute;
+  width: 496rpx;
+  height: 496rpx;
+  bottom: 240rpx;
+  left: 127rpx;
+}
+
+.ball_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ball_ani{
+  width: 320rpx;
+  height: 320rpx;
+  opacity: 0.8;
+  animation: ball 3s linear infinite alternate;
+}
+
+.ball_button{
+  width: 320rpx;
+  height: 320rpx;
+  position: absolute;
+  top: 88rpx;
+  left: 88rpx;
+  z-index: 199;
+  opacity: 0;
+  animation: ball 3s linear infinite alternate;
+}
+
+@keyframes textmov{
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes ball{
+  0% {transform: translateY(-20rpx);}
+  50% {transform: translateY(0);}
+  100% {transform: translateY(20rpx);}
+}

@@ -1,0 +1,228 @@
+/* pages/chat/chat.wxss */
+.content{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.head_wrap{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding-left: 40rpx;
+  margin-top: 64rpx;
+  color: #fff;
+}
+
+.head_l{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.head_r{
+  margin-left: 54rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.head_r_name,.head_r_introduce{
+  font-family: '黑体';
+  font-size:42rpx;
+  letter-spacing: 5rpx;
+  margin-top: 18rpx;
+}
+
+.head_r_introduce{
+  font-size: 28rpx;
+  margin-top: 24rpx;
+}
+
+.head_r_rate{
+  height: 55rpx;
+  margin-top: 26rpx;
+  display: flex;
+  align-items: center;
+}
+
+.head_r_rateimg{
+  width: 262rpx;
+  height: 55rpx;
+}
+
+.head_r_ratetext{
+  font-size: 49rpx;
+  letter-spacing: 5rpx;
+  margin-left: 18rpx;
+}
+
+.chat_wrap{
+  width: 710rpx;
+  height: 760rpx;
+  position: fixed;
+  top: 310rpx;
+  left: 20rpx;
+}
+
+.chat_bg{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.3;
+  border-radius: 6rpx;
+}
+
+.chat_content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 44rpx 47rpx;
+}
+
+/* 聊天组件 */
+.chatlist_item{
+  width: 100%;
+  display: flex;
+  margin-bottom: 28rpx;
+  /* white-space: nowrap; */
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.item_ops_img,.item_my_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.my{
+  flex-direction: row-reverse;
+}
+
+.ops{
+  flex-direction: row;
+}
+
+.item_context{
+  box-sizing: border-box;
+  padding: 30rpx;
+  font-size: 32rpx;
+  font-family: '黑体';
+  border-radius: 10rpx;
+  background-color: white;
+  max-width: 450rpx;
+  position: relative;
+}
+
+.myContext{
+  margin-right: 25rpx;
+}
+
+.myContext::before{
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 30rpx;
+  right:-20rpx;
+  border-left:20rpx solid #fff;
+  border-top:10rpx solid transparent;
+  border-bottom:10rpx solid transparent;
+}
+
+.opsContext{
+  margin-left: 25rpx;
+  background-color: #97ff71;
+}
+
+.opsContext::before{
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 30rpx;
+  left:-20rpx;
+  border-right:20rpx solid #97ff71;
+  border-top:10rpx solid transparent;
+  border-bottom:10rpx solid transparent;
+}
+
+.chat_img{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 功能区 */
+.op_wrap{
+  width: 700rpx;
+  height: 75rpx;
+  position: absolute;
+  left: 25rpx;
+  bottom: 20rpx;
+  display: flex;
+}
+
+.op_l_wrap,.op_r_wrap{
+  width: 70rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.op_m_wrap{
+  width: 530rpx;
+  height: 100%;
+  margin-left: 16rpx;
+}
+
+.op_l,.op_r{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.op_r_wrap{
+  margin-left: 15rpx;
+}
+
+.op_m_input{
+  width: 530rpx;
+  height: 100%;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.input{
+  width: 530rpx;
+  height: 75rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+  box-sizing: border-box;
+  padding-left: 15rpx;
+  font-size: 32rpx;
+  line-height: 75rpx;
+}
+
+.op_m_talk{
+  width: 530rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  letter-spacing: 5rpx;
+  font-size: 32rpx;
+}

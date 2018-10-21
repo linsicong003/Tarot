@@ -1,0 +1,52 @@
+<!-- 支付前提示 -->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap' hidden='sus'>
+    <view class='headimg'>
+      <image src='{{headimg}}'></image>
+    </view>
+
+    <view class='text1'>
+      {{name}}
+    </view>
+
+    <view class='text2'>
+      您将支付占卜费用
+    </view>
+
+    <view class='text3'>
+      {{price}}
+    </view>
+
+    <view class='text4'>
+      您的每一笔费用都是您对自我的投资
+    </view>
+
+    <view class='text5'>
+      我们的占卜师就一个字————准
+    </view>
+
+    <view class='submit' bindtap='gopay'>
+      <view class='submit_img'><image src='{{buttonsrc}}'></image></view>
+
+      <view class='submit_text'>确认支付</view>
+    </view>
+  </view>
+
+  <view class='content_wrap'>
+    <view class='sus_icon'>
+      <image src='{{sussrc}}'></image>
+    </view>
+
+    <view class='sus_text1'>
+      支付成功!
+    </view>
+
+    <view class='sus_text2'>
+      {{count}}s后自动跳转页面
+    </view>
+  </view>
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view wx:for="{{selector}}"class="item_wrap" data-op='{{item.opsrc}}' catchtap='jump'>
+      <image src='{{item.buttonbg}}' class='button_bg' mode='scaleToFill'></image>
+
+      <view class='item_text'>
+            {{item.op}}
+      </view>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

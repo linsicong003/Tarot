@@ -1,0 +1,68 @@
+/* pages/question/question.wxss */
+.button_bg{
+  width: 450rpx;
+  height: 150rpx;
+  display: block;
+}
+
+.content_wrap{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tip_text{
+  margin-top: 200rpx;
+  color: #c9caca;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+  font-family: Heiti SC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea{
+  width:500rpx;
+  height: 320rpx;
+  padding : 30rpx;
+  margin-top: 44rpx;
+  border-radius: 6rpx;
+  box-shadow: 5rpx;
+  background-color: white;
+  color:#565656;font-size:32rpx;
+
+}
+
+.submit_wrap{
+  margin-top: 82rpx;
+  width:275rpx;
+  height: 95rpx;
+  position: relative;
+}
+
+.button{
+  width: 275rpx;
+  height: 95rpx;
+}
+
+.submit{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #6f24a0;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+}

@@ -1,0 +1,91 @@
+<!--聊天页-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content'>
+    <view class='head_wrap'>
+      <view class='head_l'>
+        <image src="{{augur.src}}"></image>
+      </view>
+
+      <view class='head_r'>
+        <view class='head_r_name'>
+          {{augur.name}}
+        </view>
+
+        <view class='head_r_introduce'>
+          {{augur.introduce}}
+        </view>
+
+        <view class='head_r_rate'>
+          <view class='head_r_rateimg'>
+            <image src='../../pic/rate/0.png' wx:if="{{augur.rate*10 == 0}}"></image>
+            <image src='../../pic/rate/1.png' wx:elif="{{augur.rate*10 == 1}}"></image>
+            <image src='../../pic/rate/2.png' wx:elif="{{augur.rate*10 == 2}}"></image>
+            <image src='../../pic/rate/3.png' wx:elif="{{augur.rate*10 < 23}}"></image>
+            <image src='../../pic/rate/4.png' wx:elif="{{augur.rate*10 < 26}}"></image>
+            <image src='../../pic/rate/5.png' wx:elif="{{augur.rate*10 < 29}}"></image>
+            <image src='../../pic/rate/6.png' wx:elif="{{augur.rate*10 < 31}}"></image>
+            <image src='../../pic/rate/7.png' wx:elif="{{augur.rate*10 < 33}}"></image>
+            <image src='../../pic/rate/8.png' wx:elif="{{augur.rate*10 < 36}}"></image>
+            <image src='../../pic/rate/9.png' wx:elif="{{augur.rate*10 < 39}}"></image>
+            <image src='../../pic/rate/10.png' wx:elif="{{augur.rate*10 < 41}}"></image>
+            <image src='../../pic/rate/11.png' wx:elif="{{augur.rate*10 < 43}}"></image>
+            <image src='../../pic/rate/12.png' wx:elif="{{augur.rate*10 < 46}}"></image>
+            <image src='../../pic/rate/13.png' wx:elif="{{augur.rate*10 < 49}}"></image>
+            <image src='../../pic/rate/14.png' wx:elif="{{augur.rate*10 < 51}}"></image>
+          </view>
+          <text class='head_r_ratetext'>{{augur.rate}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='chat_wrap'>
+      <view class='chat_bg'>
+      </view>
+
+      <scroll-view class='chat_content' scroll-y>
+        <view wx:for="{{chatlist}}" wx:key="id" class="chatlist_item {{user==item.send?'my':'ops'}}">
+          <view wx:if="{{user==item.receive}}" class='item_ops_img'>
+            <!-- 如果是对方发的消息 -->
+            <image src='{{item.recivesrc}}'></image>
+          </view>
+
+          <view wx:if="{{user==item.send}}" class='item_my_img'>
+            <!-- 如果是自己发的消息 -->
+            <image src='{{item.sendsrc}}'></image>
+          </view>
+
+          <view class="item_context {{user==item.send?'myContext':'opsContext'}}">
+            <!-- 内容 -->
+            <text wx:if="{{item.type==0}}">{{item.context}}</text>
+            <view wx:if="{{item.type==1}}"></view>
+            <view wx:if="{{item.type==2}}" class='chat_img' bindtap='preview' data-imgsrc="{{item.context}}"><image src='{{item.context}}'></image></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class='op_wrap'>
+      <view class='op_l_wrap' bindtap='touchvoice'>
+        <view hidden='{{voice}}' class='op_l'><image src='{{voicesrc}}'></image></view>
+        <view hidden='{{!voice}}' class='op_l'><image src='{{keyboardsrc}}'></image></view>
+      </view>
+
+      <view class='op_m_wrap'>
+        <view class='op_m_input' hidden='{{voice}}'>
+          <input class='input'></input>
+        </view>
+
+        <view class='op_m_talk' hidden='{{!voice}}' bindlongtap='talk' bindtouchend='talkover'>
+          {{press?'松开发送':'按住说话'}}
+        </view>
+      </view>
+
+      <view class='op_r_wrap' bindtap='pickimg'>
+        <view class='op_r'><image src='{{pickimgsrc}}'></image></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<!--pages/augur/augur.wxml-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+  <!-- 主体 -->
+  <view class='content_wrap'>
+    <view class="return {{augur_work?'noshow':''}}">
+      <image src='{{returnsrc}}' class='image'></image>
+    </view>
+
+    <!-- 注册部分 -->
+    <view id="augur_reg" class="augur_reg {{reg?'':'noshow'}}">
+      <view class='reg_item reg_text'>
+        请输入您的邀请码
+      </view>
+
+      <view class='reg_item reg_input'>
+        <input class='input' value='input'></input>
+      </view>
+
+      <!-- 错误提示 -->
+      <view class="reg_item reg_error {{reg_err?'':'noshow'}}">
+        <view class='reg_err_text'>
+          邀请码错误
+        </view>
+
+        <view class='reg_err_icon'>
+          <image src='{{errorsrc}}' class='image'></image>
+        </view>
+      </view>
+
+      <view class='reg_item reg_submit_wrap'>
+        <view class='reg_submit'>
+          <image src='{{buttonsrc}}' class='image'></image>
+
+          <view class='reg_submit_text'>
+            一键注册
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 注册成功 -->
+    <view id='augur_reg_success' class="augur_sus {{reg_success?'':'noshow'}}">
+      <view class='reg_sus_item'>
+        <view class='reg_sus_icon_wrap'>
+          <image src='{{regsuccess}}' class='image'></image>
+        </view>
+      </view>
+
+      <view class='reg_sus_item reg_sus_text1'>
+        恭喜你!
+      </view>
+
+      <view class='reg_sus_item reg_sus_text2'>
+        注册成为专属占卜师
+      </view>
+
+      <view class='reg_sus_item reg_sus_text3'>
+        {{count}}s后自动跳转页面
+      </view>
+    </view>
+
+    <!-- 占卜师工作页面 -->
+    <view id='augur_work' class="augur_work {{augur_work?'':'noshow'}}">
+      <view wx:for="{{selector}}"class="item_wrap" data-op='{{item.opsrc}}' catchtap='jump'>
+      <image src='{{buttonsrc}}' class='item_button' mode='scaleToFill'></image>
+
+      <view class='item_text'>
+            {{item.op}}
+      </view>
+    </view>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

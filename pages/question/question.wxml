@@ -1,0 +1,26 @@
+<!--pages/question/question.wxml-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class="item tip_text">
+      请输入您想咨询的问题
+    </view>
+
+    <view class='item'>
+       <textarea class='textarea' value='{{input}}' placeholder='{{holder}}' placeholder-style='color:#565656;font-size:32rpx;line-height:80rpx;'></textarea>
+    </view>
+
+    <view class='item'>
+      <view class='submit_wrap'>
+          <image src='{{buttonsrc}}' class='button'></image>
+          <view class='submit' bindtap='go'>
+              确认提交
+          </view>
+      </view>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>

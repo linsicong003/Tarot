@@ -1,0 +1,56 @@
+<!--pages/search/search.wxml-->
+<view class='main_wrap'>
+  <popup id="popup" title="{{modal.title}}" content="{{modal.content}}" btn_yes="{{modal.btn_yes}}" btn_no="{{modal.btn_no}}" hidden="{{modal.hidden}}" bind:success="__success" bind:cancel="__cancel">
+  </popup>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class="return">
+      <image src='{{returnsrc}}' class='image'></image>
+    </view>
+
+    <view class='tip_wrap'>
+      查找专属占卜师
+    </view>
+
+    <view class='search_wrap'>
+      <input class='input' confirm-type='search' value='{{input}}'></input>
+    </view>
+
+    <view class='slidearea_wrap'>
+      <scroll-view class='slidearea' scroll-y>
+        <view class='slidearea_bg'></view>
+        <view wx:for="{{augur}}" class='scrollitem' data-id='{{item.id}}' bindtap='choose' bindlongpress='detail'>
+          <view class='augur_bg' hidden='{{item.select}}'></view>
+          <view class='augur_img'>
+            <image src='{{item.img}}' class='augur_image'></image>
+          </view>
+
+          <view class='augur_status'>
+            <view wx:if="{{item.status==0}}" class='blue'>在线</view>
+            <view wx:if="{{item.status==1}}" class='orange'>繁忙</view>
+            <view wx:if="{{item.status==2}}" class='grey'>休息</view>
+          </view>
+
+          <view class='augur_name'>
+            {{item.name}}
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class='button_block'>
+      <!-- <view class='button'>
+      </view> -->
+
+      <view class='button' bindtap='submit'>
+          <image src='{{buttonsrc}}'></image>
+          <view class='submit'>
+              确认提交
+          </view>
+      </view>
+    </view>
+  </view>
+    <!-- <image src='{{logosrc}}' class='logo'></image> -->
+</view>
