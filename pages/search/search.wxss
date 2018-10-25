@@ -14,6 +14,10 @@ image{
   height: 100%;
 }
 
+.augur_img image{
+  border-radius: 100%;
+}
+
 .tip_wrap{
   width: 100%;
   margin-top: 80rpx;
@@ -68,10 +72,14 @@ image{
 .slidearea_bg{
   width: 600rpx;
   height: 750rpx;
+  min-height: 750rpx;
   border-radius: 7rpx;
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
+  position: fixed;
+  left: 75rpx;
+  top: 233rpx;
   background-color: white;
   opacity: 0.3;
 }
@@ -121,6 +129,7 @@ image{
   text-align: center;
   bottom: 12rpx;
   color: #fff;
+  white-space: nowrap;
 }
 
 .blue{

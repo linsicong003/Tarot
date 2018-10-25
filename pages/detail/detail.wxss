@@ -6,6 +6,10 @@ image{
   height: 100%;
 }
 
+.protarit_wrap image,.item_protrait image{
+  border-radius: 100%;
+}
+
 .content_wrap{
   width: 100%;
   height: 100%;
@@ -29,6 +33,14 @@ image{
   border-radius: 100%;
   background-color: white;
   border: 8rpx solid white;
+  position: relative;
+}
+
+.protrait image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
 }
 
 .protrait::before{

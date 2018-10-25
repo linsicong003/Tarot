@@ -1,4 +1,5 @@
 // pages/search/search.js
+const app = getApp();
 Page({
 
   /**
@@ -12,6 +13,7 @@ Page({
     click:0,
     input:'',
     modal: { title: '确认选择', content: '占卜师正在路上！', btn_yes: '马上就去', btn_no: '我再看看', hidden: true },
+    tem:[],
     augur: [{ id:1,img: '#', status: 0, name: '越鹏大哥' ,select:true}, 
             { id:2,img: '#', status: 1, name: '雨财大哥',select:true }, 
             { id:3,img: '#', status: 2, name: '都是大哥', select: true }]
@@ -21,7 +23,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this;
+    const userId = wx.getStorageSync('userInfo');
 
+    wx.request({
+      url: app.data.serverPath + 'getAllTarotList',
+      data:userId,
+      success:res=>{
+        console.log(res);
+        let newstr = [];
+        let op = res.data.DATA;
+        for(let i=0;i<op.length;i++){
+          newstr.push({'id':op[i].tarotId,'img':op[i].avatarUrl,'status':parseInt(op[i].status)||0,'name':op[i].nickName,'select':true})
+        }
+        that.setData({
+          augur:newstr,
+          tem:newstr
+        })
+      }
+    })
   },
 
   choose(e){
@@ -50,7 +70,7 @@ Page({
     let id = e.currentTarget.dataset.id;
 
     wx.navigateTo({
-      url: '../detail/detail',
+      url: '../detail/detail?id='+id,
     })
   },
   submit(){
@@ -66,7 +86,31 @@ Page({
       url: '../beforepay/beforepay',
     })
   },
-  __cancel(){},
+  __cancel(){
+    let change = 'modal.hidden';
+    this.setData({
+      [change]:true
+    })
+    },
+
+  search(e){
+    const that = this;
+    let input = e.detail.value;
+    let now = that.data.tem;
+    let change = [];
+    let re = new RegExp(".*"+input.toUpperCase()||'*'+"*.","g");
+    let data;
+
+    for(let i=0;i<now.length;i++){
+      if (re.exec(now[i].name.toUpperCase())){
+        change.push(now[i]);
+      }
+    }
+    if(input){data=change;}else{data=now;}
+    that.setData({
+      augur:data
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

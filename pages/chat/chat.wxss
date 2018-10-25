@@ -226,3 +226,22 @@ image{
   letter-spacing: 5rpx;
   font-size: 32rpx;
 }
+
+.micwrap{
+  width: 100%;
+  height: 90%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.6;
+  z-index: 888;
+}
+
+.mic{
+  width: 128rpx;
+  height: 128rpx;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}

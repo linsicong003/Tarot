@@ -53,24 +53,24 @@
       <view class="comment {{moreclick?'full':'part'}}">
         <view class='comment_bg'></view>
 
-        <view wx:for="{{data.comment}}" class='comment_item_wrap'>
+        <view wx:for="{{data.comment}}" wx:key="cid" class='comment_item_wrap' data-comid="{{item.userId}}">
           <view class='item_bg'></view>
 
           <view class='item_protrait'>
-            <image src='{{item.src}}'></image>
+            <image src='{{item.avatarUrl}}'></image>
           </view>
 
           <view class='item_right'>
             <view class='item_rate'>
-              <image wx:if="{{item.rate == 1}}" src="../../pic/rate/u-rate/1.png"></image>
-              <image wx:elif="{{item.rate == 2}}" src="../../pic/rate/u-rate/2.png"></image>
-              <image wx:elif="{{item.rate == 3}}" src="../../pic/rate/u-rate/3.png"></image>
-              <image wx:elif="{{item.rate == 4}}" src="../../pic/rate/u-rate/4.png"></image>
-              <image wx:elif="{{item.rate == 5}}" src="../../pic/rate/u-rate/5.png"></image>
+              <image wx:if="{{item.rate == 1}}" src="../../pic/u-rate/1.png"></image>
+              <image wx:elif="{{item.rate == 2}}" src="../../pic/u-rate/2.png"></image>
+              <image wx:elif="{{item.rate == 3}}" src="../../pic/u-rate/3.png"></image>
+              <image wx:elif="{{item.rate == 4}}" src="../../pic/u-rate/4.png"></image>
+              <image wx:elif="{{item.rate == 5}}" src="../../pic/u-rate/5.png"></image>
             </view>
 
             <view class='item_text'>
-            {{item.text}}
+            {{item.nickName}}
             </view>
           </view>
         </view>
@@ -79,7 +79,7 @@
     <view class='more_wrap'>
       <view class='more_container' bindtap='more'>
         <view class='more_bg'></view>
-        <view class='more' hidden='{{data.comment.length<3||moreclick==true}}'>
+        <view class='more' wx:if="{{data.comment.length<3}}" hidden='{{moreclick==true}}'>
           加载更多
         </view>
       </view>

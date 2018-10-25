@@ -1,0 +1,155 @@
+/* pages/estimate/estimate.wxss */
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.content_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "黑体";
+}
+
+.headimg{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  background-color: #fff;
+  margin-top: 117rpx;
+}
+
+.headimg image{
+  border-radius: 100%;
+}
+
+.name{
+  color: #fff;
+  margin-top: 34rpx;
+  letter-spacing: 5rpx;
+  font-size: 46rpx;
+}
+
+.estimate_wrap{
+  width: 430rpx;
+  height: 90rpx;
+  position: relative;
+  margin-top: 38rpx;
+}
+
+.estimate_wrap_bg{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.3;
+  border-radius: 5rpx;
+}
+
+.estimate_bg{
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 199;
+}
+
+.estimate_bg{
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 199;
+}
+
+.estimate_oparea{
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  display: flex;
+  z-index: 299;
+}
+
+.opitem{
+  flex: 1;
+  height: 100%;
+}
+
+.input_wrap{
+  width: 505rpx;
+  height: 320rpx;
+  margin-top: 38rpx;
+  box-shadow: 5rpx #000;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.input{
+  width: 505rpx;
+  height: 320rpx;
+  box-sizing: border-box;
+  padding: 33rpx 26rpx;
+  background-color: #fff;
+  font-size: 35rpx;
+  color: #000;
+  justify-content: flex-start;
+  letter-spacing: 7rpx;
+  word-break: keep-all;
+  border-radius: 5rpx;
+  hyphens: auto;
+}
+
+.submit_button{
+  width: 220rpx;
+  height: 90rpx;
+  margin-top: 40rpx;
+  position: relative;
+}
+
+.submit_bg{
+  width: 100%;
+  height: 100%;
+}
+
+.submit_text{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6f24a0;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+}
+
+.bottom_op_wrap{
+  width: 386rpx;
+  margin-top: 80rpx;
+  color: #dcdddd;
+  display: flex;
+  font-size: 32rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.bottom_text1{
+  flex: 1;
+}
+
+.bottom_text2{
+  flex:1;
+  border-left:1px solid #dcdddd;
+}

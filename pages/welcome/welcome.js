@@ -38,9 +38,18 @@ Page({
               //登录成功将自定义登录态存进storage
               console.log(res);
               if(res.data.CODE == '00'){
-                wx.setStorageSync('userId', res.data.DATA.userId);
-                wx.navigateTo({
-                  url: "../index/index",
+                wx.setStorageSync('userInfo', res.data.DATA.userInfo);
+                let info = wx.getStorageSync('userInfo');
+                wx.request({
+                  // 判断有无占卜过
+                  url: app.data.serverPath + 'getDivination',
+                  data:{'userInfo':info},
+                  success:au=>{
+                    console.log(au);
+                    wx.navigateTo({
+                      url: "../index/index",
+                    })
+                  }
                 })
               }
             }

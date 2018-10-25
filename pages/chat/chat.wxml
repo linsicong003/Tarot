@@ -4,6 +4,11 @@
   </image>
 
   <view class='content'>
+    <view class='micwrap' hidden="{{!press}}">
+      <view class='mic'>
+        <image src='{{micsrc}}'></image>
+      </view>
+    </view>
     <view class='head_wrap'>
       <view class='head_l'>
         <image src="{{augur.src}}"></image>
@@ -68,22 +73,22 @@
     </view>
 
     <view class='op_wrap'>
-      <view class='op_l_wrap' bindtap='touchvoice'>
+      <view class='op_l_wrap' catchtap='touchvoice'>
         <view hidden='{{voice}}' class='op_l'><image src='{{voicesrc}}'></image></view>
         <view hidden='{{!voice}}' class='op_l'><image src='{{keyboardsrc}}'></image></view>
       </view>
 
       <view class='op_m_wrap'>
         <view class='op_m_input' hidden='{{voice}}'>
-          <input class='input'></input>
+          <textarea class='input' bindinput='input' value='{{input}}'></textarea>
         </view>
 
-        <view class='op_m_talk' hidden='{{!voice}}' bindlongtap='talk' bindtouchend='talkover'>
+        <view class='op_m_talk' hidden='{{!voice}}' catchlongtap='talk' catchtouchend='talkover' catchtap='rf'>
           {{press?'松开发送':'按住说话'}}
         </view>
       </view>
 
-      <view class='op_r_wrap' bindtap='pickimg'>
+      <view class='op_r_wrap' catchtap='pickimg'>
         <view class='op_r'><image src='{{pickimgsrc}}'></image></view>
       </view>
     </view>

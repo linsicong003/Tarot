@@ -1,0 +1,59 @@
+<!--评价-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class='headimg'>
+      <image src='{{imgsrc}}'></image>
+    </view>
+
+    <view class='name'>
+      {{name}}
+    </view>
+
+    <view class='estimate_wrap'>
+      <view class='estimate_wrap_bg'></view>
+      <view class='estimate_bg'>
+          <image wx:if="{{rate == 0}}" src="../../pic/u-rate/0.png"></image>
+          <image wx:elif="{{rate == 1}}" src="../../pic/u-rate/1.png"></image>
+          <image wx:elif="{{rate == 2}}" src="../../pic/u-rate/2.png"></image>
+          <image wx:elif="{{rate == 3}}" src="../../pic/u-rate/3.png"></image>
+          <image wx:elif="{{rate == 4}}" src="../../pic/u-rate/4.png"></image>
+          <image wx:elif="{{rate == 5}}" src="../../pic/u-rate/5.png"></image>
+      </view>
+
+      <view class='estimate_oparea' catchtap='estimate'>
+        <view class='opitem' data-opid='1'></view>
+        <view class='opitem' data-opid='2'></view>
+        <view class='opitem' data-opid='3'></view>
+        <view class='opitem' data-opid='4'></view>
+        <view class='opitem' data-opid='5'></view>
+      </view>
+    </view>
+
+    <view class='input_wrap'>
+      <textarea class='input'></textarea>
+    </view>
+
+    <view class='submit_button'>
+      <view class='submit_bg'>
+        <image src='{{buttonsrc}}'></image>
+      </view>
+
+      <view class='submit_text'>
+        完成评价
+      </view>
+    </view>
+
+    <view class='bottom_op_wrap'>
+      <view class='bottom_text1'>
+        在线客服
+      </view>
+
+      <view class='bottom_text2'>
+        问题反馈
+      </view>
+    </view>
+  </view>
+</view>

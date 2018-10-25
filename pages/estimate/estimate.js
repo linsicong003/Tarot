@@ -1,5 +1,5 @@
-// pages/detail/detail.js
-const app =getApp();
+// pages/estimate/estimate.js
+const app = getApp();
 Page({
 
   /**
@@ -9,53 +9,32 @@ Page({
     buttonsrc: getApp().data.buttonbg,
     bgsrc: getApp().data.bgsrc,
     logosrc: getApp().data.logosrc,
-    data:{
-      imgsrc:'#',           //头像src
-      name:'越鹏大哥' ,      //名字
-      rate: 4.8,             //评分
-      introduce:'我就说说不服打我',   //介绍
-      moreclick:false,        //加载更多点击标志
-      comment:[
-        {cid:1,src:'#',rate:5,text:'真的辣鸡'},
-        { cid: 2, src: '#', rate: 5, text: '真的辣鸡' },
-        { cid: 3,src: '#', rate: 5, text: '真的辣鸡' },
-        { cid: 4,src: '#', rate: 5, text: '真的辣鸡辣鸡真的辣鸡辣鸡辣鸡辣鸡真的辣鸡辣鸡鸡辣鸡真的辣鸡辣鸡辣鸡辣鸡真的辣鸡辣鸡' },
-      ]
-    }
+    rate:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that= this;
-    console.log(options.id);
-
-    //取基本信息
+    const that = this;
     wx.request({
       url: app.data.serverPath + 'getTarotDetails',
-      data:{tarotId:options.id},
+      data: { tarotId:'2ee2bd65d6db11e89bea00163e160aed'},
       success:res=>{
-        console.log(res);
+        console.log(res)
         let tem = res.data.DATA;
-        let newd = {
+        that.setData({
           imgsrc: tem.avatarUrl,
           name: tem.nickName,
-          rate: tem.rate,
-          introduce: tem.introduce,
-          comment:tem.comment}
-        that.setData({
-          data:newd
         })
       }
     })
-    // wx.request({
-    //   url: app.data.serverPath+'',
-    // })
   },
-  more(){
-    this.setData({
-      moreclick:true
+  estimate(e){
+    const that = this;
+    let choose = e.target.dataset.opid;
+    that.setData({
+      rate:parseInt(choose)
     })
   },
 

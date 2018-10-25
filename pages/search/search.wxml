@@ -15,13 +15,13 @@
     </view>
 
     <view class='search_wrap'>
-      <input class='input' confirm-type='search' value='{{input}}'></input>
+      <input class='input' confirm-type='search' value='{{input}}' bindinput='search'></input>
     </view>
 
     <view class='slidearea_wrap'>
       <scroll-view class='slidearea' scroll-y>
         <view class='slidearea_bg'></view>
-        <view wx:for="{{augur}}" class='scrollitem' data-id='{{item.id}}' bindtap='choose' bindlongpress='detail'>
+        <view wx:for="{{augur}}" wx:key="id" class='scrollitem' data-id='{{item.id}}' catchtap='choose' bindlongpress='detail'>
           <view class='augur_bg' hidden='{{item.select}}'></view>
           <view class='augur_img'>
             <image src='{{item.img}}' class='augur_image'></image>
@@ -44,7 +44,7 @@
       <!-- <view class='button'>
       </view> -->
 
-      <view class='button' bindtap='submit'>
+      <view class='button' catchtap='submit'>
           <image src='{{buttonsrc}}'></image>
           <view class='submit'>
               确认提交

@@ -1,0 +1,28 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='main_wrap'>
+  <image src='{{bgsrc}}' class='bg'> 
+  </image>
+
+  <view class='content_wrap'>
+    <view class='text_wrap'>
+      问题反馈
+    </view>
+
+    <view class='input_wrap'>
+      <textarea class='input'></textarea>
+    </view>
+
+    <view class='submit'>
+      <view class='submit_bg'>
+        <image src='{{buttonsrc}}'></image>
+      </view>
+
+      <view class='submit_text'>
+        提交反馈
+      </view>
+    </view>
+  </view>
+
+  <image src='{{logosrc}}' class='logo'></image>
+</view>
+

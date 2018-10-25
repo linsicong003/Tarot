@@ -1,4 +1,7 @@
 // pages/chat/chat.js
+const app = getApp();
+let socketOpen = false;
+var SocketTask;
 Page({
 
   /**
@@ -12,6 +15,7 @@ Page({
     voicesrc:getApp().data.voicesrc,
     keyboardsrc: getApp().data.keyboardsrc,
     pickimgsrc: getApp().data.pickimgsrc,
+    micsrc: getApp().data.micsrc,
     voice:0,
     press:0,
     user:'yuepeng',
@@ -34,7 +38,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this;
 
+    if (!socketOpen) {
+      that.websocket();
+    }
+
+    // wx.onSocketOpen(res=>{
+    //   wx.sendSocketMessage({
+    //     data: [{'msg':'嘻嘻'}],
+    //   });
+    //   console.log(res);
+    // })
+  },
+  rf(){
+    return false;
+  },
+  websocket(){
+    SocketTask = wx.connectSocket({
+      url: app.data.socketPath,
+      data: { 'msg': 'hello' },
+      header: { 'content-type': 'application/json' },
+      method:'post',
+      success:res=>{
+        console.log('WebSocket成功连接！',res);
+      },
+      fail:res=>{
+        console.log('出现错误啦！！'+res);
+        wx.showToast({
+          title: '网络异常！',
+        })
+      }
+    })
+    
   },
   touchvoice(){
     let voice = !this.data.voice;
@@ -87,14 +123,39 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const that = this;
+    console.log(SocketTask)
+    SocketTask.onOpen(res=>{
+      socketOpen = true;
+      console.log('WebSocket is opening.....');
+    })
 
+    SocketTask.onClose(onClose =>{
+      console.log('Websocket closed!',onClose);
+      socketOpen = true;
+      that.websocket();
+    })
+
+    SocketTask.onError(err =>{
+      console.log(err);
+      socketOpen = false;
+    })
+
+    SocketTask.onMessage(mes=>{
+      console.log(mes);
+    })
+  },
+  input(e){
+    const that = this;
+
+    console.log(e);
   },
 
   /**
