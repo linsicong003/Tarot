@@ -13,9 +13,9 @@
     </view>
 
     <view class='item'>
-      <view class='submit_wrap'>
+      <view class='submit_wrap' catchtap='go'>
           <image src='{{buttonsrc}}' class='button'></image>
-          <view class='submit' bindtap='go'>
+          <view class='submit'>
               确认提交
           </view>
       </view>

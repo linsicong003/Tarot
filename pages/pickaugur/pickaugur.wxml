@@ -10,7 +10,7 @@
       选择您的专属占卜师
     </view>
 
-    <view class='choose_item' bindtap='gopick'>
+    <view class='choose_item' catchtap='gopick'>
       <image src='{{buttonsrc}}'></image>
 
       <view class='button_text'>自选占卜师</view>

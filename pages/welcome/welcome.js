@@ -36,14 +36,15 @@ Page({
             data:post,
             success:res=>{
               //登录成功将自定义登录态存进storage
-              console.log(res);
+              console.log(res.data.DATA.securityToken);
               if(res.data.CODE == '00'){
-                wx.setStorageSync('userInfo', res.data.DATA.userInfo);
+                wx.setStorageSync('userInfo', res.data.DATA.securityToken);
                 let info = wx.getStorageSync('userInfo');
                 wx.request({
                   // 判断有无占卜过
-                  url: app.data.serverPath + 'getDivination',
-                  data:{'userInfo':info},
+                  url: app.data.serverPath + 'tarot/getDivination',
+                  method:'POST',
+                  data: {'securityToken':info},
                   success:au=>{
                     console.log(au);
                     wx.navigateTo({
@@ -59,7 +60,10 @@ Page({
     }
     console.log(e);
   },
-
+  atStr(atStr) {
+    var dataAt = atStr.replace(/(\r\n)|(\n)/g, '');
+    return dataAt;
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

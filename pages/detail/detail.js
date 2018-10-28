@@ -33,7 +33,7 @@ Page({
 
     //取基本信息
     wx.request({
-      url: app.data.serverPath + 'getTarotDetails',
+      url: app.data.serverPath + 'tarot/getTarotDetails',
       data:{tarotId:options.id},
       success:res=>{
         console.log(res);

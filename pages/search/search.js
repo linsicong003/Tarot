@@ -25,10 +25,11 @@ Page({
   onLoad: function (options) {
     const that = this;
     const userId = wx.getStorageSync('userInfo');
-
+    console.log(userId);
     wx.request({
-      url: app.data.serverPath + 'getAllTarotList',
-      data:userId,
+      url: app.data.serverPath + 'tarot/getAllTarotList',
+      // method:'POST',
+      data: {'securityToken':userId},
       success:res=>{
         console.log(res);
         let newstr = [];

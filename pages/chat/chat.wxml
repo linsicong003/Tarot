@@ -50,7 +50,7 @@
       <view class='chat_bg'>
       </view>
 
-      <scroll-view class='chat_content' scroll-y>
+      <scroll-view class='chat_content' scroll-y scroll-top='{{scrolltop}}'>
         <view wx:for="{{chatlist}}" wx:key="id" class="chatlist_item {{user==item.send?'my':'ops'}}">
           <view wx:if="{{user==item.receive}}" class='item_ops_img'>
             <!-- 如果是对方发的消息 -->
@@ -80,10 +80,10 @@
 
       <view class='op_m_wrap'>
         <view class='op_m_input' hidden='{{voice}}'>
-          <textarea class='input' bindinput='input' value='{{input}}'></textarea>
+          <input class='input' bindconfirm='input' value='{{input}}' confirm-type='发送'></input>
         </view>
 
-        <view class='op_m_talk' hidden='{{!voice}}' catchlongtap='talk' catchtouchend='talkover' catchtap='rf'>
+        <view class='op_m_talk' hidden='{{!voice}}' catchlongpress='talk' catchtouchmove='talkmove' catchtouchend='talkover'>
           {{press?'松开发送':'按住说话'}}
         </view>
       </view>
