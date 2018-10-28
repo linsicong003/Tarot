@@ -1,16 +1,18 @@
 {
   "pages": [
         "pages/welcome/welcome",
+        "pages/search/search",
     "pages/chat/chat",
+    "pages/estimate/estimate",
     "pages/detail/detail",
     "pages/index/index",
     "pages/pickaugur/pickaugur",
     "pages/augur/augur",
     "pages/question/question",
-    "pages/search/search",
     "pages/rest/rest",
     "pages/beforepay/beforepay",
-    "pages/wait/wait"
+    "pages/wait/wait",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",
