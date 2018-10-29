@@ -1,7 +1,10 @@
 // pages/chat/chat.js
 const app = getApp();
 let socketOpen = false;
-var SocketTask;
+const recordManager = wx.getRecorderManager();
+const bgvideo = wx.getBackgroundAudioManager();
+const audio = wx.createInnerAudioContext()
+var SocketTask,UploadTask;
 Page({
 
   /**
@@ -16,9 +19,11 @@ Page({
     keyboardsrc: getApp().data.keyboardsrc,
     pickimgsrc: getApp().data.pickimgsrc,
     micsrc: getApp().data.micsrc,
-    scrolltop:0,
+    play:0,
+    scrollTop:0,
     voice:0,
     press:0,
+    src:'',
     user:'yuepeng',
     augur:{
       src:'#',
@@ -40,36 +45,10 @@ Page({
    */
   onLoad: function (options) {
     const that = this;
-    wx.getSetting({
-      success(res){
-        console.log(res);
-        if (!res.authSetting['scope.record']) {
-          wx.authorize({
-            scope: 'scope.record',
-            success() {
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-            },
-            fail(){
-              wx.showToast({
-                title: '请正确授权！',
-              })
-              that.auth();
-            }
-          })
-        }
-      }
-    })
 
     if (!socketOpen) {
       that.websocket();
     }
-
-    // wx.onSocketOpen(res=>{
-    //   wx.sendSocketMessage({
-    //     data: [{'msg':'嘻嘻'}],
-    //   });
-    //   console.log(res);
-    // })
   },
   auth(){
     const that = this;
@@ -127,6 +106,19 @@ Page({
             formData:{},
             success:function(res){
               console.log(res);
+              let tmp = that.data.chatlist;
+              let filesrc = res.tempFilePaths[0];
+              let data = { 'id': Math.random(), 'send': 'yuepeng', 'sendsrc': '#', 'receive': 'sicong', 'receivesrc': '#', 'type': '2', 'timestamp': '111', 'context': filesrc };
+
+              tmp.push(data);
+              // that.setData({
+              //   chatlist: tmp
+              // })
+              // wx.nextTick(res => {
+              //   that.setData({
+              //     scrollTop: 100000
+              //   })
+              // })
             },
             fail:err=>{
               console.log(err)
@@ -138,20 +130,16 @@ Page({
 
           //上传进度监测
           UploadTask.onProgressUpdate((res) => {
+            if (res.progress < 100) {
+              wx.showLoading({
+                title: '正在发送' + res.progress + '%',
+              })
+            }
             console.log('上传进度', res.progress)
             console.log('已经上传的数据长度', res.totalBytesSent)
             console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
           })
-
         }
-        let tmp = that.data.chatlist;
-        let filesrc = res.tempFilePaths[0];
-        let data = { 'id': '2', 'send': 'yuepeng', 'sendsrc': '#', 'receive': 'sicong', 'receivesrc': '#', 'type': '2', 'timestamp': '111', 'context': filesrc };
-
-        tmp.push(data);
-        that.setData({
-          chatlist:tmp
-        })
       },
     })
   },
@@ -169,32 +157,130 @@ Page({
     let press = !that.data.press;
 
     //longpress event
-    wx.getSetting({
-      srccess(res) {
-        console.log(res.authSetting);
-      }
-    })
-    that.setData({
-      press: press
-    })  
+    // wx.getSetting({
+    //   srccess(res) {
+    //     console.log(res.authSetting);
+    //   }
+    // })
+    recordManager.start({duration:60000,format:'mp3'});
   },
 
   talkover(){
     const that = this;
 
-    if (touchtimer != 0) {
-      console.log(touchtimer);
-      console.log('please touch longer');
-    }
-    that.setData({
-      press: false
-    })
+    recordManager.stop();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    const that = this;
+
+    //录音开始
+    recordManager.onStart(res=>{
+      console.log('start record');
+      that.setData({
+        press: true
+      })
+    })
+
+    //录音结束
+    recordManager.onStop(res=>{
+      console.log('stop record');
+      console.log(res);
+      let fp = res.tempFilePath;
+      if(res.tempFilePath){
+        console.log('send record')
+        let UploadTask = wx.uploadFile({
+          url: app.data.serverPath + 'uploadFile',
+          filePath: fp,
+          name: 'record',
+          formData: {},
+          success: function (res) {
+            console.log(res);
+            //插入语音消息
+            let temdata = that.data.chatlist;
+            console.log(temdata)
+            let temmodel = { 'id': Math.random(), 'send': 'yuepeng', 'sendsrc': '#', 'receive': 'sicong', 'receivesrc': '#', 'type': '1', 'timestamp': '111', 'context': fp };
+            temdata.push(temmodel);
+            that.setData({
+              chatlist:temdata,
+            })
+            wx.nextTick(res=>{
+              that.setData({
+                scrollTop: 100000
+              })
+            })
+          },
+          fail: err => {
+            console.log(err)
+            wx.showToast({
+              title: '服务器开小差啦~',
+            })
+          }
+        })
+
+
+        //上传进度监测
+        UploadTask.onProgressUpdate((res) => {
+          if (res.progress < 100) {
+            wx.showLoading({
+              title: '正在发送' + res.progress + '%',
+            })
+          }
+          console.log('上传进度', res.progress)
+          console.log('已经上传的数据长度', res.totalBytesSent)
+          console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+        })
+      }
+      that.setData({
+        press: false
+      })
+    })
+
+    audio.onPlay(res=>{
+      wx.hideLoading();
+    })
+    audio.onError(err=>{
+      console.log('play error'+err)
+      console.log(err);
+      wx.showModal({
+        title: 'Error',
+        content: '播放错误'+err,
+      })
+    })
+    audio.onStop(res=>{
+      console.log('play stop')
+      that.setData({
+        play: 0
+      })
+    })
+    audio.onEnded(res=>{
+      console.log('play end');
+      that.setData({
+        play: 0
+      })
+    })
+    // that.audio = wx.createAudioContext('myAudio');
+  },
+  play(e){
+    const that = this;
+    console.log(e);
+    let url = e.currentTarget.dataset.playurl;
+    if(!that.data.play){
+      //如果不是播放状态
+      // that.audio.setSrc(url);
+      // that.audio.play();
+      audio.src=url;
+      audio.play();
+      console.log('play');
+      that.setData({
+        play:1
+      })
+    }else{
+      //如果在播放则停止
+      audio.stop();
+    }
   },
 
   /**
@@ -244,7 +330,11 @@ Page({
     that.setData({
       input:'',
       chatlist:content,
-      scrolltop:100000
+    })
+    wx.nextTick(res => {
+      that.setData({
+        scrollTop: 100000
+      })
     })
   },
 

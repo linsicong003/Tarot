@@ -20,7 +20,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this;
+    wx.getSetting({
+      success(res) {
+        console.log(res);
+        if (!res.authSetting['scope.record']) {
+          wx.authorize({
+            scope: 'scope.record',
+            success() {
+              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+            },
+            fail() {
+              // wx.showToast({
+              //   title: '请正确授权！',
+              //   success:res=>{
+              //     wx.redirectTo({
+              //       url: '../chat/chat',
+              //     })
+              //     wx.hideToast();
+              //   }
+              // })
+            }
+          })
+        }
+      }
+    })
   },
 
   go(e){

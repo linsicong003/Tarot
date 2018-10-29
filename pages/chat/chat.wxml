@@ -1,5 +1,6 @@
 <!--聊天页-->
 <view class='main_wrap'>
+  <audio  src="{{src}}" id="myAudio" ></audio>
   <image src='{{bgsrc}}' class='bg'> 
   </image>
 
@@ -50,7 +51,7 @@
       <view class='chat_bg'>
       </view>
 
-      <scroll-view class='chat_content' scroll-y scroll-top='{{scrolltop}}'>
+      <scroll-view class='chat_content' scroll-y scroll-top='{{scrollTop}}'>
         <view wx:for="{{chatlist}}" wx:key="id" class="chatlist_item {{user==item.send?'my':'ops'}}">
           <view wx:if="{{user==item.receive}}" class='item_ops_img'>
             <!-- 如果是对方发的消息 -->
@@ -62,10 +63,13 @@
             <image src='{{item.sendsrc}}'></image>
           </view>
 
-          <view class="item_context {{user==item.send?'myContext':'opsContext'}}">
+          <view class="item_context {{user==item.send?'myContext':'opsContext'}}" data-playurl='{{item.context}}' catchtap="{{item.type==1?'play':''}}">
             <!-- 内容 -->
             <text wx:if="{{item.type==0}}">{{item.context}}</text>
-            <view wx:if="{{item.type==1}}"></view>
+            <view wx:if="{{item.type==1}}">
+              <image class='rimg' wx:if="{{user==item.receive}}" src='../../pic/recordr.png'></image>
+              <image class='rimg' wx:if="{{user==item.send}}" src='../../pic/recordl.png' ></image>
+            </view>
             <view wx:if="{{item.type==2}}" class='chat_img' bindtap='preview' data-imgsrc="{{item.context}}"><image src='{{item.context}}'></image></view>
           </view>
         </view>
