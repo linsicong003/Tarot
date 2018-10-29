@@ -1,8 +1,8 @@
 {
   "pages": [
-        "pages/welcome/welcome",
-        "pages/search/search",
-    "pages/chat/chat",
+        "pages/chat/chat",
+    "pages/welcome/welcome",
+    "pages/search/search",
     "pages/estimate/estimate",
     "pages/detail/detail",
     "pages/index/index",
