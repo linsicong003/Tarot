@@ -1,0 +1,12 @@
+<!--component/modal/modal.wxml-->
+<view class='lv_modal_wrap' hidden='{{hidden}}'>
+  <view class='lv_container'>
+    <view class='lv_modal_bg'><image src='./bg.png' class='lv_modal_bgimg'></image></view>
+    <view class='lv_modal_title'>{{title}}</view>
+    <view class='lv_modal_content'>{{content}}</view>
+    <view class='lv_modal_btn'>
+      <view class='lv_modal_btn_yes' bindtap='__success'>{{btn_yes}}</view>
+      <view class='lv_modal_btn_no' bindtap='__cancel'>{{btn_no}}</view>
+    </view>
+  </view>
+</view>

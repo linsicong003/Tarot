@@ -1,0 +1,19 @@
+<!--component/rate/rate.wxml-->
+      <view>
+        <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540061286621&di=26d7765c053c95176985cae16d63d90b&imgtype=0&src=http%3A%2F%2Fwww.zjkonline.com%2Fwell%2Fimages%2Fzbwangying%2Fc2_20171202093344_81658.jpg' ></image>
+        <image src='./rate/0.png' wx:if="{{rate*10 == 0}}"></image>
+        <image src='./rate/1.png' wx:elif="{{rate*10 == 1}}"></image>
+        <image src='./rate/2.png' wx:elif="{{rate*10 == 2}}"></image>
+        <image src='./rate/3.png' wx:elif="{{rate*10 < 23}}"></image>
+        <image src='./rate/4.png' wx:elif="{{rate*10 < 26}}"></image>
+        <image src='./rate/5.png' wx:elif="{{rate*10 < 29}}"></image>
+        <image src='./rate/6.png' wx:elif="{{rate*10 < 31}}"></image>
+        <image src='./rate/7.png' wx:elif="{{rate*10 < 33}}"></image>
+        <image src='./rate/8.png' wx:elif="{{rate*10 < 36}}"></image>
+        <image src='./rate/9.png' wx:elif="{{rate*10 < 39}}"></image>
+        <image src='./rate/10.png' wx:elif="{{rate*10 < 41}}"></image>
+        <image src='./rate/11.png' wx:elif="{{rate*10 < 43}}"></image>
+        <image src='./rate/12.png' wx:elif="{{rate*10 < 46}}"></image>
+        <image src='./rate/13.png' wx:elif="{{rate*10 < 49}}"></image>
+        <image src='./rate/14.png' wx:elif="{{rate*10 < 51}}"></image>
+      </view>

@@ -1,0 +1,70 @@
+/* component/modal/modal.wxss */
+.lv_modal_wrap{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 699;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lv_container{
+  position: absolute;
+  width: 520rpx;
+  height: 266rpx;
+  top: 336rpx;
+  left: 115rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgba(201, 202, 202, 0.9);
+  color: #fff;
+  font-size: 40rpx;
+}
+
+.lv_modal_bg{
+  width: 100%;
+  height: 100%;
+}
+
+.lv_modal_bgimg{
+  width: 100%;
+  height: 100%;
+}
+
+.lv_modal_title,.lv_modal_content{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 15rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.lv_modal_content{
+  padding-top: 0;
+  padding-bottom: 15rpx;
+  top: 70rpx;
+  left: 0;
+}
+
+.lv_modal_btn{
+  width: 100%;
+  position: absolute;
+  height: 126rpx;
+  top: 140rpx;
+  left: 0;
+  display: flex;
+}
+
+.lv_modal_btn_yes,.lv_modal_btn_no{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
